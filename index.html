@@ -14,11 +14,16 @@
 <body>
   
 <div id="station_map"></div>
+<div id="rain_temp_scatter"></div>
 
 <script type="text/javascript">
 
   var spec2 = "js/station_map.vg.json";
   vegaEmbed('#station_map', spec2).then(function(result) {
+  }).catch(console.error);
+
+  var spec3 = "js/RainfallVSTemperatureScatter.vg.json";
+  vegaEmbed('#rain_temp_scatter', spec3).then(function(result) {
   }).catch(console.error);
 </script>
 

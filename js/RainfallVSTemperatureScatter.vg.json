@@ -54,7 +54,7 @@
       "encoding": {
         "x": { "value": 30 },
         "y": { "datum": 50 },
-        "text": { "value": "Ref: 50 mm" },
+        "text": { "value": "50 mm" },
         "color": { "value": "black" }
     }
    }
