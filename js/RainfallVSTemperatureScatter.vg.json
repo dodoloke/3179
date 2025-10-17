@@ -2,7 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 600,
-  "title": "Rainfall vs Max Temperature (°C)",
   "data": {
     "url": "https://raw.githubusercontent.com/dodoloke/3179/refs/heads/main/data/weatherAUS.csv"
   },
@@ -23,7 +22,7 @@
   ],
   "layer": [
     {
-    "mark": { "type": "circle"},
+    "mark": { "type": "circle", "opacity": 0.4, "size": 30},
     "encoding": {
         "x": {
             "field": "MaxTemp",
@@ -40,7 +39,8 @@
             { "field": "Location", "type": "nominal" },
             { "field": "MaxTemp", "type": "quantitative", "title": "Max Temp (°C)" },
             { "field": "Rainfall", "type": "quantitative", "title": "Rainfall (mm)" }
-         ]
+         ],
+         "color": {"value": "#cf3313"}
       }
     },
     {

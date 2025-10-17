@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
+    "width": "container", 
     "height": 450,
-    "title": "Estimated Annual Temperature (Celsius) in Australia, 2020-2039",
     "projection": {"type": "equalEarth"},
     "layer": [
       {
@@ -17,7 +16,7 @@
           "url": "https://raw.githubusercontent.com/dodoloke/3179/refs/heads/main/js/AusMapWithGraticules.topojson",
           "format": {"type": "topojson", "feature": "ne_10m_graticules_10"}
         },
-        "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+        "mark": {"type": "geoshape", "fill": null, "opacity": 0.45, "stroke": "black"}
       },
       {
         "data": {
@@ -27,9 +26,10 @@
             {"filter": "datum.ENSEMBLE == 'r1i1p1' && datum.RCP == 'rcp26' && datum.MODEL == 'CESM1-CAM5' && datum.CLIMATOLOGY == '2020-2039'"},
             {"calculate": "toNumber(datum.LAT)", "as": "latitude"},
             {"calculate": "toNumber(datum.LON)", "as": "longitude"},
-            {"calculate": "toNumber(datum.Annual)", "as": "annual_c"}
+            {"calculate": "toNumber(datum.Annual)", "as": "annual_c"},
+            {"calculate": "datum.STATION_NAME", "as": "station_name"}
         ],
-        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "mark": {"type": "circle", "size": 105, "opacity": 0.9},
         "encoding": {
           "longitude": {"field": "longitude", "type": "quantitative"},
           "latitude": {"field": "latitude", "type": "quantitative"},
@@ -38,7 +38,13 @@
             "type": "quantitative",
             "title": "Annual Mean (Celsius)",
             "scale": {"scheme": "reds"}
-          }
+          },
+          "tooltip": [
+            {"field": "station_name", "type": "nominal", "title": "Weather Station"},
+            {"field": "latitude", "type": "quantitative", "title": "Latitude"},
+            {"field": "longitude", "type": "quantitative", "title": "Longitude"},
+            {"field": "annual_c", "type": "quantitative", "title": "Annual Mean Temp (°C)"}
+          ]
         }
       }
     ]

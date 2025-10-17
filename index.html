@@ -19,56 +19,97 @@
   
 </head>
 <body>
-
   <div class="page">
     <!-- Header -->
-  <div class="pure-g">
+    <header class="pure-g page-header">
+      <div class="pure-u-1">
+        <h1 class="page-title">Global & Australian Weather Insights</h1>
+      </div>
+  </header>
+
+  <!-- Row 1: World map + Short description -->
+  <section class="pure-g vis-section">
     <div class="pure-u-1">
-        <h1>Multiple Visualisations</h1>
+      <h2 class="vis-title">Yearly Average Surface Temperature (°C) — 2022</h2>
+      <div id="vis-choropleth" class="vis-container"></div>
+
+      <div class="description description-center">
+      <p>
+        Global patterns of surface temperature in 2022 reveal a warm planet. Regions across <strong>Africa</strong>, <strong>Northern South America</strong> 
+        and <strong>Southeast Asia</strong> remain the hottest, while higher latitudes cool towards the poles. Next, <strong>Europe</strong> and <strong>China</strong> show elevated reds
+        reflecting the record summer heatwaves and <strong>Australia</strong> and <strong>Southern Africa</strong> also sit in the warm band. Cooler tones persist over <strong>Northen Canada</strong>,
+        <strong>Siberia</strong> and <strong>the Himalayas</strong>. The map underscores a persistent gradient: heat concentrated in the tropics, with recent intensification in populated mid-latitudes.
+      </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Row 2: Text (Left) + AUS weather stations map (Right)-->
+  <section class="pure-g vis-section">
+    <div class="pure-u-1-4">
+      <div class="description description-left">
+        <h3>What to look for</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.
+          These <strong>modelled estimates (2020—2039)</strong> show warmer annual means clustering along the <strong>northern interior</strong> and parts of <strong>Queensland</strong>. Hover 
+          for <strong>station details</strong> and compare <strong>annual vs seasonal</strong> views to spot regional gradients. 
+        </p>
+        <p>
+          Notice <strong>coast vs inland</strong> contrasts, stations near <strong>mountain ranges</strong>, and any <strong>outliers</strong> that don't match nearby sites.
+          The colour scale is <strong>sequential</strong>: darker means <strong>warmer</strong>.
+        </p>
+        <p class="small-font">
+          Note: These are <strong>climate estimates</strong>, not live readings. Results depend on the <strong>underlying model/ensemble</strong>.
         </p>
       </div>
-  </div>
+    </div>
+    <div class="pure-u-3-4">
+      <h2 class="vis-title"> Weather Stations in Australia: Estimated Temperature (2020-2039)</h2>
+      <div id="vis-aus-dots" class="vis-container"></div>
+    </div>
+  </section>
 
-  <!-- 2 Columns: text + Map -->
-  <div class="pure-g">
-    <div class="pure-u-1-3">
-      <div class="description description-left">
-        <h2>Annual Temperature Map</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.
-          </p>
-      </div>
-    </div>
-    <div class="pure-u-2-3">
-      <div id="vis-map" class="vis-container"></div>
-    </div>
-  </div>
-
-  <!-- 2 Columns: Scatter + text -->
-  <div class="pure-g">
-    <div class="pure-u-1-3">
-      <div class="description description-right">
-        <h2>Rainfall vs Max Temperature</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.
-          </p>
-      </div>
-    </div>
-    <div class="pure-u-2-3">
+  <!-- Row 3: Interactive Scatter Plot(Left) + Text (Right)-->
+  <section class="pure-g vis-section">
+    <div class="pure-u-3-4">
+      <h2 class="vis-title">Rainfall vs Max Temperature (°C)</h2>
       <div id="vis-scatter" class="vis-container"></div>
     </div>
-  </div>
+    <div class="pure-u-1-4">
+      <div class="description description-right">
+        <h3>What to look for</h3>
+        <p>
+          The chart plots <strong>daily max temperature</strong> against <strong>rainfall</strong>. Most rain happens around <strong>15—30 °C</strong>, but heavy
+          falls can still occur on cooler or warmer days. This shows that <strong>temperature alone</strong> doesn't explain <strong>heavy rain</strong>.
+        </p>
+        <p>
+          Filter by <strong>year</strong> to compare patterns. Look for <strong>clusters</strong> (different weather types) and a wider spread at higher temps (more <strong>variation</strong> on hot days).
+        </p>
+        <p class="small-font">
+          Tip: Use tooltips to check the <strong>date</strong> and <strong>location</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
+   <footer class="pure-g">
+    <div class="pure-u-1">
+      <p> This visualisation was created by <strong>Loke Eshen (33522804)</strong>. Data Sources: Global Data Lab, Climate Change In Australia, Kaggle</p>
+    </div>
+   </footer>
+  
   <script type="text/javascript">
 
-    var spec2 = "js/station_map.vg.json";
-    vegaEmbed('#vis-map', spec2).then(function(result) {
+    var specChoropleth = "js/ChoroplethWorldMap.vg.json";
+    vegaEmbed('#vis-choropleth', specChoropleth).then(function(result) {
     }).catch(console.error);
 
-    var spec3 = "js/RainfallVSTemperatureScatter.vg.json";
-    vegaEmbed('#vis-scatter', spec3).then(function(result) {
+    var specAusDots = "js/station_map.vg.json";
+    vegaEmbed('#vis-aus-dots', specAusDots).then(function(result) {
+    }).catch(console.error);
+
+    var specScatter = "js/RainfallVSTemperatureScatter.vg.json";
+    vegaEmbed('#vis-scatter', specScatter).then(function(result) {
     }).catch(console.error);
   </script>
 

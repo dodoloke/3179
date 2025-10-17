@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "width": 950,
-        "height": 500,
-        "title": "Yearly Average Surface Temperature (°C) — 2022",
+        "width": "container",
+        "height": 600,
         "projection": {"type": "equalEarth"},
         "layer": [ 
         {
@@ -43,8 +42,16 @@
                 "color": {
                     "field": "surfacetempyear",
                     "type": "quantitative",
-                    "title": "Mean Temp (°C) - 2022",
-                    "scale": {"scheme": "reds"}
+                    "title": "Mean Temp (°C)",
+                    "scale": {"scheme": "reds"},
+                    "legend": {
+                        "orient": "top-right",
+                        "direction": "horizontal",
+                        "labelFont": "Calibri",
+                        "labelFontSize": 13,
+                        "titleFont": "Calibri",
+                        "titleFontSize": 15
+                    }
                 },
                 "tooltip": [ 
                     {"field": "Country", "type": "nominal", "title": "Country"},
