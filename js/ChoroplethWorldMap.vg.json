@@ -55,8 +55,8 @@
                 },
                 "tooltip": [ 
                     {"field": "Country", "type": "nominal", "title": "Country"},
-                    {"field": "ISO_Code", "type": "nominal", "title": "ISO_3"},
-                    {"field": "surfacetempyear", "type": "quantitative", "title": "Mean temp (°C) - 2022"}
+                    {"field": "ISO_Code", "type": "nominal", "title": "Country Code (ISO-3)"},
+                    {"field": "surfacetempyear", "type": "quantitative", "title": "Mean temp (°C) - 2022", "format": ".1f"}
                 ]
             }
         }

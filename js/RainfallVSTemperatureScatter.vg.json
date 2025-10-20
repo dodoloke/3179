@@ -22,7 +22,15 @@
   ],
   "layer": [
     {
-    "mark": { "type": "circle", "opacity": 0.4, "size": 30},
+      "mark": {"type": "rect", "opacity": 0.01},
+      "encoding": {
+        "x": {"datum": 15},
+        "x2": {"datum": 30},
+        "color": {"value": "grey"}
+      }
+    },
+    {
+    "mark": { "type": "circle", "opacity": 0.4, "size": 45},
     "encoding": {
         "x": {
             "field": "MaxTemp",
@@ -52,11 +60,11 @@
       "data": { "values": [{}] },
       "mark": { "type": "text", "dx": 6, "dy": -6, "fontWeight": "bold" },
       "encoding": {
-        "x": { "value": 30 },
-        "y": { "datum": 50 },
-        "text": { "value": "50 mm" },
+        "x": { "value": 80 },
+        "y": { "datum": 53 },
+        "text": { "value": "50 mm: Heavy Rain Threshold" },
         "color": { "value": "black" }
+      }
     }
-   }
   ]
 }
