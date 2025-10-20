@@ -60,7 +60,7 @@
       "data": { "values": [{}] },
       "mark": { "type": "text", "dx": 6, "dy": -6, "fontWeight": "bold" },
       "encoding": {
-        "x": { "value": 80 },
+        "x": { "datum": 2 },
         "y": { "datum": 53 },
         "text": { "value": "50 mm: Heavy Rain Threshold" },
         "color": { "value": "black" }
